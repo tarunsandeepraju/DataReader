@@ -13,7 +13,7 @@ redis_client = redis.StrictRedis(
 )
 
 # Configure Kafka
-kafka_admin_client = KafkaAdminClient(bootstrap_servers='pkc-w77k7w.centralus.azure.confluent.cloud:9092')
+kafka_admin_client = KafkaAdminClient(bootstrap_servers='localhost:9092')
 
 
 @app.route('/start', methods=['POST'])

@@ -13,7 +13,7 @@ redis_client = StrictRedis(
 kafka_producer = KafkaProducer(bootstrap_servers='localhost:9092')
 kafka_consumer = KafkaConsumer(
     'market_data',
-    bootstrap_servers='pkc-w77k7w.centralus.azure.confluent.cloud:9092',
+    bootstrap_servers='localhost:9092',
     auto_offset_reset='earliest',
     value_deserializer=lambda x: json.loads(x.decode('utf-8'))
 )
@@ -25,5 +25,5 @@ def run_microservice():
         # Process data and interact with Redis if needed
         redis_client.set('some_key', json.dumps(data))
 
-if __name__ == "__mai_n_":
+if __name__ == "__main__":
     run_microservice()
