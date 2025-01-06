@@ -4,7 +4,7 @@ import json
 
 # Connect to Redis
 redis_client = StrictRedis(
-    host='localhost',
+    host='redis.finvedic.in',
     port=6379,
     db=0
 )
@@ -13,7 +13,7 @@ redis_client = StrictRedis(
 kafka_producer = KafkaProducer(bootstrap_servers='localhost:9092')
 kafka_consumer = KafkaConsumer(
     'market_data',
-    bootstrap_servers='localhost:9092',
+    bootstrap_servers='pkc-w77k7w.centralus.azure.confluent.cloud:9092',
     auto_offset_reset='earliest',
     value_deserializer=lambda x: json.loads(x.decode('utf-8'))
 )
